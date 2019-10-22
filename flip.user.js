@@ -1,7 +1,7 @@
 // ==UserScript==
-// @name         GitHub: flip compare
+// @name         GitHub: flip comparison - BETA
 // @namespace    https://github.com/Procyon-b
-// @version      0.1
+// @version      0.2
 // @description  flip direction of comparison
 // @author       Achernar
 // @match        https://github.com/*/compare/*...*
@@ -34,8 +34,8 @@ function addFlip() {
     e.parentNode.id="addedFlip";
     e.parentNode.innerHTML=ne+e.parentNode.innerHTML;
     document.getElementById('swapCompare').onclick=function(){
-      if ( ! /^\/([^/]+)(\/[^/]+\/compare\/)([^\./]+)\.\.\.([^:./]+):(.+)/.test(location.pathname) ) return;
-      location.pathname = RegExp.$4 + RegExp.$2 + RegExp.$5 +'...'+ RegExp.$1 +':'+ RegExp.$3;
+      if (! /^\/([^/]+)(\/[^/]+\/compare\/)([^/]+?)\.\.\.(?:([^:./]+):)?(.+)$/.test(location.pathname) ) return;
+      location.pathname = (RegExp.$4 || RegExp.$1) + RegExp.$2 + RegExp.$5 +'...'+ (RegExp.$4? RegExp.$1 +':' :'') + RegExp.$3;
       }
     }
 
