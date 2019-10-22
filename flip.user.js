@@ -1,5 +1,5 @@
 // ==UserScript==
-// @name         GitHub: flip comparison - BETA
+// @name         GitHub: flip comparison
 // @namespace    https://github.com/Procyon-b
 // @version      0.2
 // @description  flip direction of comparison
